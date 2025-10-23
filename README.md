@@ -1,21 +1,15 @@
-É bem simples, como eu ainda to estudando não fui eu que fiz tudo, creditos abaixos:
+# Solace Injector
 
-# Sistema de injeção
-https://github.com/pessimo
+> Um injetor de dll bem simples ai
 
-(Resto fui eu)
+## Créditos
 
+- Sistema de injeção: [pessimo](https://github.com/pessimo)  
+- Resto do código e adaptações foi tudo feito por mim
 
+## Observações
 
-
-
-
-
-
-Um dia ai provavelmente vou dar upload no primeiro que fiz que é só uma leitura de memoria de um processo
-
--
-Notas:
-Não sei se funciona 100% porque só testei a injeção e não deu erros
-Baixa chance de ser atualizado
-Botei em ingles porque eu nao pretendia nem dar upload aq, se um dia eu atualizar boto em portugues
+- Testei a injeção e não encontrei erros, mas nao tenho ideia se funciona 100%.
+- Pouca chance de eu atualizar.
+- Os bagulho do console ta tudo em ingles mas um dia talvez eu atualize pra portugues (não pretendia botar no github entao fiz em ingles que é a linguagem da maioria dos meus projetos).
+- Um dia talvez eu de upload tambem no meu primeiro projeto em C# que é só um leitor de memoria bem bomba.
