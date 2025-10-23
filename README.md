@@ -13,3 +13,4 @@
 - Pouca chance de eu atualizar.
 - Os bagulho do console ta tudo em ingles mas um dia talvez eu atualize pra portugues (não pretendia botar no github entao fiz em ingles que é a linguagem da maioria dos meus projetos).
 - Um dia talvez eu de upload tambem no meu primeiro projeto em C# que é só um leitor de memoria bem bomba.
+- Segundo projeto em C#
