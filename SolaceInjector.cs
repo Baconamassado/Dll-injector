@@ -1,3 +1,5 @@
+// Ingles é bem melhor pra fazer codigo mas 0 vontade de traduzir o readme
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -50,56 +52,56 @@ public class Injector
 
         if (loadLibraryA == IntPtr.Zero)
         {
-            Console.WriteLine("Failed to get LoadLibraryA address.");
+            Console.WriteLine("Deu pra carregar LoadLibraryA nao");
             return;
         }
         else
         {
-            Console.WriteLine("Loaded kernel32.dll");
+            Console.WriteLine("kernel32.dll carregado");
         }
 
         var processHandle = OpenProcess(ProcessAllAccess, false, processId);
         if (processHandle == IntPtr.Zero)
         {
-            Console.WriteLine("Failed to get process handle.");
+            Console.WriteLine("Nao deu pra carregar o process handle");
             return;
         }
         else
         {
-            Console.WriteLine("Loaded process handle");
+            Console.WriteLine("Process handle carregado");
         }
 
         var bytes = Encoding.Default.GetBytes(dllPath);
         var memory = VirtualAllocEx(processHandle, IntPtr.Zero, (uint)(bytes.Length + 1), MemoryCommit | MemoryReserve, PageReadWrite);
         if (memory == IntPtr.Zero)
         {
-            Console.WriteLine("Failed allocating memory");
+            Console.WriteLine("Falha alocando a memoria");
             return;
         }
         else
         {
-            Console.WriteLine("Allocated memory");
+            Console.WriteLine("Memoria alocada");
         }
 
         if (WriteProcessMemory(processHandle, memory, bytes, (uint)(bytes.Length + 1), 0) == 0)
         {
-            Console.WriteLine("Failed to write memory");
+            Console.WriteLine("Falha escrevendo memoria");
             return;
         }
         else
         {
-            Console.WriteLine("Success writing memory");
+            Console.WriteLine("Memoria escrita");
         }
 
-        Console.WriteLine("Creating remote thread...");
+        Console.WriteLine("Criando thread remoto");
 
         if (CreateRemoteThread(processHandle, IntPtr.Zero, 0, loadLibraryA, memory, 0, IntPtr.Zero) == IntPtr.Zero)
         {
-            Console.WriteLine("Error creating remote thread");
+            Console.WriteLine("Erro criando thread remoto");
         }
         else
         {
-            Console.WriteLine("Successfully created remote thread");
+            Console.WriteLine("Thread remoto criado com sucesso");
         }
     }
 }
@@ -120,16 +122,16 @@ class Program
     {
         bool runningAsDM = Iraa();
         Injector starter = new Injector();
-        Console.WriteLine("Welcome to solace DLL injector");
-        Console.WriteLine($"Status\nRunning as adm: {runningAsDM}");
+        Console.WriteLine("Seja bem vindo ao Solace (Versão injetor de dll)");
+        Console.WriteLine($"Status\nRodando como adm: {runningAsDM}");
         Console.WriteLine();
 
-        Console.Write("Please input DLL path: ");
+        Console.Write("Bota o caminho da dll: ");
         string PathInp = Console.ReadLine();
-        Console.Write("Now please insert process name: ");
+        Console.Write("Nome do processo pra injetar a dll: ");
         string processInp = Console.ReadLine();
         Console.WriteLine($"{processInp}");
-        Console.WriteLine("Injecting...");
+        Console.WriteLine("Injetando...");
         Console.WriteLine();
 
         starter.Inject(processInp, PathInp);
